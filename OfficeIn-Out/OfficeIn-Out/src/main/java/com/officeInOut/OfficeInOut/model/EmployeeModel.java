@@ -1,32 +1,40 @@
 package com.officeInOut.OfficeInOut.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "employeeDetails")
 public class EmployeeModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int employeeId;
     private String firstName;
     private String lastName;
     private String emailId;
+    private String token;
 
     public EmployeeModel(String firstName, String lastName, String emailId){
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
     }
+    public EmployeeModel(){
 
-    public int getId() {
-        return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public EmployeeModel(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getFirstName() {
@@ -53,16 +61,11 @@ public class EmployeeModel {
         this.emailId = emailId;
     }
 
-    public EmployeeModel(){
-
+    public String getToken() {
+        return token;
     }
 
-    public EmployeeModel(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void setToken(String token) {
+        this.token = token;
     }
-
-
-
-
 }
