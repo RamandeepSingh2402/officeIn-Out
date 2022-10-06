@@ -12,7 +12,7 @@ public interface EmployeeService {
 
     public EmployeeModel addEmployee(EmployeeModel employeeModel);
 
-    public EmployeeModel getEmployeeById(int employeeId);
+    public EmployeeModel getEmployeeByEmployeeId(int employeeId);
 
     public EmployeeModel getEmployeeByEmailId(String emailId);
 

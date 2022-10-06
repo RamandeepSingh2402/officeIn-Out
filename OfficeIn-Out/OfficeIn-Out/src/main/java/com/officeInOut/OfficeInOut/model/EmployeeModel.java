@@ -3,7 +3,6 @@ package com.officeInOut.OfficeInOut.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employeeDetails")
 public class EmployeeModel {
 
     @Id
@@ -12,7 +11,6 @@ public class EmployeeModel {
     private String firstName;
     private String lastName;
     private String emailId;
-    private String token;
 
     public EmployeeModel(String firstName, String lastName, String emailId){
         this.firstName = firstName;
@@ -59,13 +57,5 @@ public class EmployeeModel {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 }
