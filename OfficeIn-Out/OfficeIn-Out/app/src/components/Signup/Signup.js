@@ -1,22 +1,23 @@
-import { React, useState, Component } from 'react'
-import { Container } from 'reactstrap';
 import { CssBaseline } from '@mui/material';
-import { Box } from '@mui/system';
-import { Avatar } from 'material-ui';
-import {Button} from '@mui/material';
-import {Checkbox} from '@mui/material';
-import TextField from 'material-ui/TextField';
-import {FormControlLabel} from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import IconButton from 'material-ui/IconButton';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import EmployeeSelection from '../EmployeeSelection/EmployeeSelection';
+import "./Signup.css";
 
-class Signup extends Component{
 
-  render(){
-  const pageRedirect = () => {
-    window.location.replace("http://localhost:3000/signup");
-  }
+export default function Signup(){
 
+  const pageRedirect = (emailId) => {
+    window.location.replace("http://localhost:3000/employee?=" +  emailId);
+    // EmployeeSelection(emailId);
+    <EmployeeSelection emailId = {emailId} />
+  };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -25,7 +26,7 @@ class Signup extends Component{
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),
     });
-    fetch('',{
+    fetch('http://localhost:9001/signup',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,8 +39,8 @@ class Signup extends Component{
       })
     }).then(response =>
       response.json()
-      .then(json =>{
-        pageRedirect(json["id"])
+      .then(json => {
+        pageRedirect(json["emailId"])
       }))
       .catch(error => {
         console.log("Invalid user");
@@ -47,22 +48,20 @@ class Signup extends Component{
   };
 
     return(
-      <ThemeProvider theme={ ThemeProvider }>
+      <>
+      <h1>Kindly signup for today!</h1>
+      <div className='classNameForm'>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
           sx = {{
-              marginTop: 8,
+
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-
-            <Avatar sx={{m:1, bgcolor: 'secondary.main'}}>
-              <IconButton />
-            </Avatar>
-            <Box component="form" className="loginBox" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <Box component="form" className="loginBox" onSubmit={handleSubmit} noValidate >
             <TextField
               margin="normal"
               required
@@ -94,6 +93,17 @@ class Signup extends Component{
               autoFocus
               className="emailId"
             />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="workingLocation"
+              label="Working Location"
+              name="workingLocation"
+              autoComplete="Office, Remote"
+              autoFocus
+              className="workingLocation"
+            />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -108,11 +118,8 @@ class Signup extends Component{
             </Button>
             </Box>
           </Box>
-
         </Container>
-      </ThemeProvider>
+        </div>
+        </>  
     );
 }
-}
-
-export default Signup;

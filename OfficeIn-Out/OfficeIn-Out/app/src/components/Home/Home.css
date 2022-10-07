@@ -1,0 +1,20 @@
+h1{
+    background-color: darkgray;
+    color: rgb(252, 5, 5);
+    text-align: center;
+    padding: 200px;
+    margin: -30px;
+}
+#ready{
+    background-color: gray;
+    padding: 150px;
+    text-emphasis: bold;
+    margin: -20px;
+    text-align: center;
+}
+#tell{
+    background-color: darkgray;
+    padding: 100px;
+    text-align: center;
+    margin: -40px;
+}

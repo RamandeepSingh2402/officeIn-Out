@@ -19,9 +19,21 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public String getAllEmployees(){
         return "This would be the list of all the employees";
+    }
+
+    @GetMapping("employee/{emailId}")
+    public String getUserByEmailId(@PathVariable("emailId") String emailId)
+    {
+//        EmployeeModel employee = employeeService.getEmployeeByEmailId(emailId);
+        try {
+            return employeeService.getEmployeeByEmailId(emailId).getFirstName();
+        }
+        catch (NullPointerException e){
+            return null;
+        }
     }
 
     @PostMapping(path = "/signup", consumes="application/json", produces = "application/json")

@@ -36,7 +36,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeModel getEmployeeByEmailId(String emailId) {
-        return null;
+        EmployeeModel employee = null;
+        Optional<EmployeeModel> optionalEmployee = employeeRepository.findByEmailId(emailId);
+
+        if(optionalEmployee.isPresent())
+        {
+            employee = optionalEmployee.get();
+        }
+
+        return employee;
     }
 
 //    @Override
