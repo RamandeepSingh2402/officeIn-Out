@@ -1,13 +1,8 @@
 import { React, Component } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-class FirstTime extends Component{
-    // const navigate = useNavigate();
-    // const navigateToSignup = () => {
-    //     navigate('./signup');
-    // }
+function FirstTime(){
 
-    render(){
     return(
         <>
             <h1>
@@ -19,13 +14,9 @@ class FirstTime extends Component{
             <p>
                 First time here?
             </p>
-            {/* <button onClick={navigateToSignup}>
-                Don't forget to signup.
-            </button> */}
             
         </>
     );
-}
 }
 
 export default FirstTime;

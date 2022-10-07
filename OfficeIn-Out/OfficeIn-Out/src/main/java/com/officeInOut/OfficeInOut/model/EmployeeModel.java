@@ -11,11 +11,13 @@ public class EmployeeModel {
     private String firstName;
     private String lastName;
     private String emailId;
+    private String workingLocation;
 
-    public EmployeeModel(String firstName, String lastName, String emailId){
+    public EmployeeModel(String firstName, String lastName, String emailId, String workingLocation){
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
+        this.workingLocation = workingLocation;
     }
     public EmployeeModel(){
 
@@ -57,5 +59,13 @@ public class EmployeeModel {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
+    }
+
+    public String getWorkingLocation() {
+        return workingLocation;
+    }
+
+    public void setWorkingLocation(String workingLocation) {
+        this.workingLocation = workingLocation;
     }
 }

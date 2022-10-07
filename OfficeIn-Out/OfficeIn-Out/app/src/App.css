@@ -1,6 +1,22 @@
-#whole{
-    background-color: burlywood ;
-}
 #welcome{
     background-color: bisque;
+}
+.nav-link {
+    color: darkcyan;
+    text-decoration: none;
+}
+
+ul li{
+    text-decoration: none;
+}
+ul li a{
+    text-decoration: none;
+}
+
+.navbar navbar-nav a{
+    text-decoration: none;
+    margin: 20px;
+}
+a {
+    text-decoration: none;
 }
